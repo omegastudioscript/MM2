@@ -1,0 +1,38 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Mm2 Script By Omega Scripts", "Synapse")
+
+-- OMain
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Best Hacks")
+
+
+Section:NewButton("Fly = h", "press h to fly", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/omegastudioscript/OmegaScript/main/ByOmegaScripts"))() 
+
+    Fly(true)
+end)
+
+Section:NewSlider("Walkspeed", "Changes how fast you walk.", 250, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section:NewSlider("JumpPower", "Changes how fast you jump.", 250, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+Section:NewButton("ESP", "Players location", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/Releases/main/MurderMystery2HighlightESP'),true))()
+end)
+
+Section:NewButton("Noclip Gui (By me but other script)", "No walls", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/omegastudioscript/Mm2ScriptOmega/main/NoclipOMEGA'),true))()
+end)
+
+Section:NewToggle("Infinite Jump", "Lets you infinitely jump", function()
+    local InfiniteJumpEnabled = true
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        if InfiniteJumpEnabled then
+            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+        end
+    end)
+end)
